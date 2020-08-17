@@ -52,10 +52,10 @@ public class AutenticacaoPorTokenFilter extends OncePerRequestFilter {
 
 			UsernamePasswordAuthenticationToken usuAuthenticationToken = new UsernamePasswordAuthenticationToken(
 					usuario.get(), null, usuario.get().getAuthorities());
-			
+
 			SecurityContextHolder.getContext().setAuthentication(usuAuthenticationToken);
-		}else {
-			throw new UsernameNotFoundException("Usuario nao encontrado");	
+		} else {
+			throw new UsernameNotFoundException("Usuario nao encontrado");
 		}
 	}
 
