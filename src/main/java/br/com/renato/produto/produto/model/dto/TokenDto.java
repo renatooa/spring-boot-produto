@@ -1,8 +1,14 @@
 package br.com.renato.produto.produto.model.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(description = "Retorno da Autenticação", value="Token")
 public class TokenDto {
 
+	@ApiModelProperty(example = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOi...")
 	private String token;
+	@ApiModelProperty(example = "Bearer")
 	private String tipoAutenticacao;
 
 	public TokenDto() {

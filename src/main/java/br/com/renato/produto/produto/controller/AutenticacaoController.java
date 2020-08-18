@@ -15,8 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.renato.produto.produto.model.dto.LoginDto;
+import br.com.renato.produto.produto.model.dto.MensagemDto;
 import br.com.renato.produto.produto.model.dto.TokenDto;
 import br.com.renato.produto.produto.service.auth.TokenService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 
 @RestController()
 @CrossOrigin(origins = "*")
@@ -29,13 +34,20 @@ public class AutenticacaoController {
 	@Autowired
 	private TokenService tokenService;
 
+	@ApiOperation(value = "Realiza a autenticacao na Web API")
+	@ApiResponses({ @ApiResponse(code = 200, message = "O token e o tipo de autenticação"),
+			@ApiResponse(code = 401, message = "Não autorizado"),
+			@ApiResponse(code = 400, message = "Requisição inválida", response = MensagemDto.class),
+			@ApiResponse(code = 500, message = "Erro Interno Servidor", response = MensagemDto.class) })
 	@PostMapping
-	public ResponseEntity<?> logar(@RequestBody @Valid LoginDto login) throws AuthenticationException {
+	public ResponseEntity<TokenDto> logar(
+			@ApiParam(value = "{\"login\": \"admin\",\"senha\": \"@admin\"}") @RequestBody @Valid LoginDto login)
+			throws AuthenticationException {
 
 		UsernamePasswordAuthenticationToken authenticationToken = login.toUsernamePasswordAuthenticationToken();
 
 		Authentication authenticate = authenticationManager.authenticate(authenticationToken);
-		
+
 		String token = tokenService.gerarToken(authenticate);
 
 		TokenDto tokenDto = new TokenDto(token);

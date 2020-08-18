@@ -28,8 +28,8 @@ public class ExceptionHandler {
 	@org.springframework.web.bind.annotation.ExceptionHandler
 	public void handle(NaoEncontradoException naoEncontradoException) {
 	}
-	
-	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
+
+	@ResponseStatus(code = HttpStatus.UNAUTHORIZED)
 	@org.springframework.web.bind.annotation.ExceptionHandler
 	public void handle(AuthenticationException naoAutenticadoException) {
 	}

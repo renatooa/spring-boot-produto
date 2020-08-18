@@ -17,6 +17,14 @@ public class Produto {
 	
 	public Produto() {
 	}
+	
+	public Produto(String id, String nome, Double valor, boolean disponivel) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.valor = valor;
+		this.disponivel = disponivel;
+	}
 
 	public String getId() {
 		return id;

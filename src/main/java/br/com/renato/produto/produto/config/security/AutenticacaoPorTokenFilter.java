@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -60,7 +61,7 @@ public class AutenticacaoPorTokenFilter extends OncePerRequestFilter {
 	}
 
 	private String recuperarToken(HttpServletRequest request) {
-		String token = request.getHeader("Authorization");
+		String token = request.getHeader(HttpHeaders.AUTHORIZATION);
 
 		String inicioToken = "Bearer ";
 

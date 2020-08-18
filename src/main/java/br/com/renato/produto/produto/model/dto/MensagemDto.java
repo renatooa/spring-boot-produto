@@ -1,9 +1,16 @@
 package br.com.renato.produto.produto.model.dto;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(description = "Mensagem", value = "Mensagem")
 public class MensagemDto {
 
+	@ApiModelProperty(example = "ok")
 	private String mensagem;
+	@ApiModelProperty(example = "true")
 	private boolean sucesso;
+	@ApiModelProperty(example = "ok")
 	private String descricao;
 
 	public MensagemDto() {
@@ -11,14 +18,14 @@ public class MensagemDto {
 		this.sucesso = true;
 		this.descricao = "ok";
 	}
-	
+
 	public MensagemDto(String mensagem, boolean sucesso, String descricao) {
 		super();
 		this.mensagem = mensagem;
 		this.sucesso = sucesso;
 		this.descricao = descricao;
 	}
-	
+
 	public MensagemDto(String mensagem, boolean sucesso) {
 		super();
 		this.mensagem = mensagem;
