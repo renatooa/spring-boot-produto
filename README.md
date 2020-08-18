@@ -8,7 +8,7 @@ Projeto elaborado utilizando Spring Boot versão 2.3.3, utilizando a pilha tecno
 - __Spring Data__ – Persistência de dados
 - __Spring Cache__ - Cache de recursos
 - __Spring Security__ - Segurança autorização e autenticação
-- __ Jjwt__ - Administração do Token de Autenticação
+- __Jjwt__ - Administração do Token de Autenticação
 - __Spring Actuator__ - Fornecimento de dados sobre a saúde da Web Api
 - __Boot Admin__ - Envio de dados obtidos do Actuator para o Spring Boot Adimin, que por sua vez fornece  a interface gráfica. Mais informações [Spring Boot Admin](https://github.com/codecentric/spring-boot-admin)
 - __H2__ –-    Banco de Dados
